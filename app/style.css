@@ -1,0 +1,113 @@
+/* DealHound — original design: ink header, warm amber accent, card grid. */
+:root {
+  --ink: #17130c;
+  --paper: #fffaf2;
+  --card: #ffffff;
+  --line: #e8ddc9;
+  --amber: #b45309;
+  --amber-soft: #fef3c7;
+  --green: #166534;
+  --green-soft: #dcfce7;
+  --muted: #6b5d4f;
+  --red: #991b1b;
+  --radius: 12px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--amber); }
+.site-head { background: var(--ink); color: #fffaf2; padding: 14px 0 10px; }
+.head-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { color: #fffaf2; text-decoration: none; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.brand .mark { color: #f59e0b; }
+.site-head nav a { color: #fde68a; text-decoration: none; margin-left: 18px; font-weight: 600; }
+.site-head nav a:hover { text-decoration: underline; }
+.tag { color: #d6c9b4; margin: 6px auto 0; font-size: 14px; }
+.hero { padding: 28px 0 8px; }
+.hero h1 { font-size: 34px; line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.02em; }
+.hero p { margin: 0 0 10px; max-width: 72ch; }
+.stats { color: var(--muted); }
+.controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 18px 0 6px;
+}
+.controls input[type="search"], .controls select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+  min-width: 0;
+}
+.strong-only { display: flex; align-items: center; gap: 6px; font-size: 14px; white-space: nowrap; }
+.count { color: var(--muted); font-size: 14px; margin: 8px 0 14px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 32px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.card-top { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.cat {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--amber); background: var(--amber-soft);
+  padding: 3px 8px; border-radius: 999px;
+}
+.verdict { font-size: 12px; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.v-low { background: #065f46; color: #fff; }
+.v-strong { background: var(--green-soft); color: var(--green); }
+.v-good { background: #dbeafe; color: #1e40af; }
+.v-decent { background: var(--amber-soft); color: var(--amber); }
+.v-routine { background: #f3f4f6; color: #4b5563; }
+.card h3 { margin: 4px 0 0; font-size: 17px; line-height: 1.3; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.store { margin: 0; color: var(--muted); font-size: 14px; }
+.prices { margin: 2px 0 0; }
+.now { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.was { color: var(--muted); font-size: 15px; }
+.pct { background: var(--red); color: #fff; font-weight: 800; font-size: 13px; padding: 2px 7px; border-radius: 6px; margin-left: 4px; }
+.save { margin: 0; font-weight: 700; color: var(--green); }
+.checked { margin: 0; color: var(--muted); font-size: 13px; }
+.buy {
+  margin-top: auto;
+  display: inline-block;
+  background: var(--ink); color: #fffaf2; text-decoration: none;
+  font-weight: 700; text-align: center;
+  padding: 10px 14px; border-radius: 8px;
+}
+.buy:hover { background: var(--amber); }
+.buy.big { font-size: 18px; padding: 12px 20px; }
+.empty { padding: 40px 0; font-size: 18px; }
+.back { margin: 20px 0 0; }
+.detail { padding: 12px 0 40px; max-width: 760px; }
+.detail h1 { font-size: 30px; line-height: 1.2; margin: 10px 0 6px; letter-spacing: -0.02em; }
+.detail h2 { font-size: 20px; margin: 26px 0 8px; }
+.detail p, .detail li { max-width: 72ch; }
+.store.big { font-size: 18px; }
+.prices.big .now { font-size: 40px; }
+.save.big { font-size: 18px; }
+footer { border-top: 1px solid var(--line); padding: 20px 16px 32px; color: var(--muted); font-size: 14px; }
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .controls { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .controls { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 27px; }
+  .detail h1 { font-size: 24px; }
+  .now { font-size: 23px; }
+}
